@@ -37,13 +37,20 @@ class CategoriesIndex extends React.Component {
     let categories = []
     if (this.state.categories) {
       this.state.categories.forEach((item, idx) => {
-
         let childrenCategories = []
         item.categories.forEach((child, idx) => {
-          childrenCategories.push(<div>{child.title}</div>)
+          childrenCategories.push(
+            <Col xs={2}>
+              <Category category={child} key={idx} />
+            </Col>
+          )
         })
-        
-        categories.push(<Category key={idx} category={ item } />)
+        categories.push(
+          <Row key={idx} >
+            <h3>{ item.title }</h3>
+            { childrenCategories }
+          </Row>
+        )
       })
     }
     
@@ -53,9 +60,9 @@ class CategoriesIndex extends React.Component {
         <Row>
           <Col xs={12}>
             <h2><Center>{ this.state.category.name }</Center></h2>
-            { categories }
           </Col>
         </Row>
+        { categories }
       </Grid>
     ) 
   }

@@ -25,12 +25,7 @@ const categoriesIndex = (variables) => {
   return (dispatch, getState) => {
     let state = getState()
     let url = `${config.apiUrl}/api/categories.json`
-
-    console.log('+++ +++ categoriesIndex action state:', state)
-    console.log('+++ +++ categoriesIndex action variables:', variables)
-    
     fetch(url).then(r => r.json()).then(_data => {
-      // console.log('+++ +++ _data of action categoriesIndex():', _data)
       dispatch({
         type: SET_CATEGORIES_INDEX,
         categories: _data,
@@ -38,6 +33,20 @@ const categoriesIndex = (variables) => {
     })
   }
 }
+
+const categoriesShow = (variables) => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/categories.json`    
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET_CATEGORIES_INDEX,
+        categories: _data,
+      })
+    })
+  }
+}
+
 
 /* const citiesIndex = () => {
   return (dispatch, getState) => { 
@@ -112,11 +121,5 @@ export default {
   setApiUrl,
 
   categoriesIndex,
-
-  /* citiesIndex,
-  citiesShow,
-
-  galleriesShow,
-
-  reportsShow, */
+  categoriesShow,
 }

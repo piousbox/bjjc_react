@@ -9,6 +9,7 @@ import { categoriesShow } from '../../actions'
 
 import Center from '../Center'
 import Debug from '../Debug'
+import BjjcRouter from '../App/BjjcRouter'
 
 import styles from './_Categories.scss'
 
@@ -17,18 +18,28 @@ class CategoriesShow extends React.Component {
   constructor(props) {
     super(props)
     this.state = { category: {} }
-    this.props.dispatch(categoriesShow({}))
+    // this.props.dispatch(categoriesShow({}))
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(Object.assign({}, this.state, {categories: nextProps.categories }))
+    this.setState(Object.assign({}, this.state, {category: nextProps.category }))
   }
 
-  render () {        
+  render () {
+    // console.log('+++ +++ state:', this.state)
+    // console.log('+++ +++ props:', this.props)
+
+    let childrenCategories = []
+    /* this.state.category.categories.forEach((child, idx) => {
+      childrenCategories.push(<div>{child.title}</div>)
+    }) */
+
     return (
-      <div key={idx}>
-        <Link to={ BjjcRouter.categoryLink(item) }>{ item.title }</Link>
-        { children_categories }
+      <div>
+        <Link to={ BjjcRouter.categoryLink(this.state.category) }>{ this.state.category.title }</Link>
+        <br />
+        <img style={{ width: '100%' }} src={ this.state.category.photo_url } alt='' />
+        { childrenCategories }
       </div>
     ) 
   }
@@ -43,4 +54,6 @@ const mapStateToProps = (state, ownprops) => {
   }
 }
 
-export default connect(mapStateToProps)(CategoriesShow)
+export default connect(mapStateToProps)(CategoriesShow) 
+
+export default CategoriesShow
