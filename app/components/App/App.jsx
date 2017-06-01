@@ -13,7 +13,6 @@ import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
 import Home from './Home'
-import { TechniquesIndex } from '../Techniques'
 import { CategoriesIndex, CategoriesShow } from '../Categories'
 import MainNavigation from './MainNavigation'
 import BjjcRouter from './BjjcRouter'
@@ -40,9 +39,9 @@ class App extends React.Component {
           <Route path='/' component={MainNavigation} >
             <IndexRoute component={Home} />
 
-            <Route path="/technique" component={TechniquesIndex}>
-              <Route path='/technique/categories/' component={CategoriesIndex}>
-                <Route path='/technique/categories/:slug_0' component={CategoriesShow}>
+            <Route path="/technique" component={CategoriesIndex}>
+              <Route path='/technique/:slug_0' component={CategoriesIndex}>
+                <Route path='/technique/:slug_0/:slug_1' component={CategoriesIndex}>
                   { /* <Route path='/technique/categories/:slug_0/:slug_1' component={CategoriesShowShow} /> */ }
                 </Route>
               </Route>

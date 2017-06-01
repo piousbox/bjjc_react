@@ -8,12 +8,15 @@
 
 ## Develop
 
+Technique is a thing of the router (url and what people search for).
+Category is a thing of the structure (controllers, views).
+
 20170517: I tried peact-google-maps, now trying google-maps-react
 
 ## Install
 
 node ip - this project is on lb
-dev port 8005
+dev port 8006
 
 
 

@@ -28,6 +28,7 @@ class TechniquesIndex extends React.Component {
   render () {
     return (
       <Grid>
+        Index of technique
         <Row>
           <Col xs={12}>
             <Center>

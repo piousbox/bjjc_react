@@ -16,7 +16,7 @@ import Leaderboard from './Leaderboard'
 import config from 'config'
 import {
   SET_API_URL,
-} from '../../constants/AppConstants'
+} from '../../constants'
 
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -41,7 +41,8 @@ class MainNavigation extends React.Component {
             <Nav bsStyle="pills" pullRight>
               <li><Link to="/">Home</Link></li>
               <li><Link to='/technique'>Encyclopedia of Technique</Link></li>
-              <li><Link to='/'>Fighters Guild</Link></li>
+              <li><Link to='/fighters-guild'>Fighters Guild</Link></li>
+              <li><Link to='/shop'>Shop</Link></li>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

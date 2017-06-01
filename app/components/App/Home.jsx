@@ -19,7 +19,7 @@ import Center from '../Center'
 
 import {
   SET_API_URL,
-} from '../../constants/AppConstants'
+} from '../../constants'
 
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -29,8 +29,8 @@ import { siteNewsitemsIndex } from '../../actions'
 class Home extends React.Component {
 
   constructor(props) {
-    super(props) 
-    this.props.dispatch(siteNewsitemsIndex());
+    super(props)
+    // this.props.dispatch(siteNewsitemsIndex());
   }
 
   componentWillMount() {
@@ -38,11 +38,12 @@ class Home extends React.Component {
 
   render () {
     let newsitems = []
-    if (this.props.siteNewsitems) {
+
+    /* if (this.props.siteNewsitems) {
       this.props.siteNewsitems.forEach((item, idx) => {
         newsitems.push(<li key={idx} >{item.name}</li>)
       })
-    }
+    } */
 
     return (
       <div style={{ marginTop: '60px' }}>

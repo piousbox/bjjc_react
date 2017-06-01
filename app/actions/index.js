@@ -1,29 +1,16 @@
 
 /*
- * tgm_react appActions.js
+ * bjjc_react appActions.js
  */
-
-// import ReduxThunk from 'redux-thunk'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 
 import {
-  ITEMS_GET_SUCCESS,
-  ITEMS_GET_ERROR,
-
   SET_API_URL,
 
-  SET_CITIES_INDEX,
-  SET_CITIES_SHOW,
-  SET_CITY,
-
-  SET_GALLERY,
-
-  SET_REPORT,
-
-  SET_SITE_NEWSITEMS,
-
-} from '../constants/AppConstants';
+  SET_CATEGORIES_INDEX,
+  SET_CATEGORY,
+} from '../constants';
 
 import config from 'config'
 
@@ -34,7 +21,24 @@ const setApiUrl = () => {
   }
 }
 
-const citiesIndex = () => {
+const categoriesIndex = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/categories.json`
+
+    console.log('+++ url:', url)
+
+    fetch(url).then(r => r.json()).then(_data => {
+      console.log('+++ +++ _data of action categoriesIndex():', _data)
+      dispatch({
+        type: SET_CATEGORIES_INDEX,
+        categories: _data,
+      })
+    })
+  }
+}
+
+/* const citiesIndex = () => {
   return (dispatch, getState) => { 
     let state = getState()
     let url = config.apiUrl + "/api/cities.json"
@@ -101,31 +105,17 @@ const reportsShow = (args) => {
       })
     })
   }
-}
-
-const siteNewsitemsIndex = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let url = `${config.apiUrl}/api/sites/view/travel-guide.mobi.json`
-    
-    fetch(url).then(r => r.json()).then(_data => {
-      dispatch({
-        type: SET_SITE_NEWSITEMS,
-        siteNewsitems: _data.site.newsitems,
-      })
-    })
-  }
-}
+} */
 
 export default {
   setApiUrl,
 
-  citiesIndex,
+  categoriesIndex,
+
+  /* citiesIndex,
   citiesShow,
 
   galleriesShow,
 
-  reportsShow,
-
-  siteNewsitemsIndex,
+  reportsShow, */
 }

@@ -9,6 +9,9 @@ export const ITEMS_UPDATED = 'ITEMS_UPDATED'
 
 export const SET_API_URL = 'set api url'
 
+export const SET_CATEGORY = 'set category'
+export const SET_CATEGORIES_INDEX = 'set categories index'
+
 export const SET_CITIES_INDEX = 'set cities index'
 export const CITIES_INDEX_UPDATED = 'cities index updated'
 
@@ -21,3 +24,4 @@ export const SET_GALLERY = 'set gallery'
 export const SET_REPORT = 'set report'
 
 export const SET_SITE_NEWSITEMS = 'set site newsitems'
+

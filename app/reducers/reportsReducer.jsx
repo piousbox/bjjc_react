@@ -5,7 +5,7 @@
 
 import {
   SET_REPORT,
-} from '../constants/AppConstants'
+} from '../constants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
