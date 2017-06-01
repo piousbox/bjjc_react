@@ -4,11 +4,23 @@
  */
 
 import {
+  SET_CATEGORY,
   SET_CATEGORIES_INDEX,
 } from '../constants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
+
+function categoryReducer (state = {}, action) {
+
+  // console.log('+++ +++ category reducer:', action)
+
+  switch (action.type) {
+    case SET_CATEGORY:
+      return action.category
+    default: return state
+  }
+}
 
 function categoriesIndexReducer (state = {}, action) {
 
@@ -23,5 +35,6 @@ function categoriesIndexReducer (state = {}, action) {
 }
 
 export default {
+  categoryReducer,
   categoriesIndexReducer,
 }

@@ -21,14 +21,41 @@ const setApiUrl = () => {
   }
 }
 
-const categoriesIndex = (variables) => {
+const categoriesIndex = (params) => {
   return (dispatch, getState) => {
     let state = getState()
-    let url = `${config.apiUrl}/api/categories.json`
+    let url = `${config.apiUrl}/api/categories`
+
+    if (params.slug_0) {
+      url = `${url}/${params.slug_0}`
+      if (params.slug_1) {
+        url = `${url}/${params.slug_1}`
+        if (params.slug_2) {
+          url = `${url}/${params.slug_2}`
+          if (params.slug_3) {
+            url = `${url}/${params.slug_3}`
+            if (params.slug_4) {
+              url = `${url}/${params.slug_4}`
+            }
+          }
+        }
+      }
+    }
+    console.log('+++ +++ categoriesIndex() action params:', params, 'url:', url)
+
     fetch(url).then(r => r.json()).then(_data => {
+
+      console.log('+++ +++ categoriesIndex() action got data:', _data)
+
+      // let category = _data; category.delete( 'categories' )
+
       dispatch({
         type: SET_CATEGORIES_INDEX,
         categories: _data,
+      })
+      dispatch({
+        type: SET_CATEGORY,
+        category: _data,
       })
     })
   }
