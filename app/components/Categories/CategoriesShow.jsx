@@ -54,6 +54,6 @@ const mapStateToProps = (state, ownprops) => {
   }
 }
 
-export default connect(mapStateToProps)(CategoriesShow) 
+// export default connect(mapStateToProps)(CategoriesShow) 
 
 export default CategoriesShow

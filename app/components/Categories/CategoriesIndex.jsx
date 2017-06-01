@@ -38,10 +38,10 @@ class CategoriesIndex extends React.Component {
     if (this.state.categories) {
       this.state.categories.forEach((item, idx) => {
         let childrenCategories = []
-        item.categories.forEach((child, idx) => {
+        item.categories.forEach((child, idx_2) => {
           childrenCategories.push(
             <Col xs={2}>
-              <Category category={child} key={idx} />
+              <Category category={child} key={idx_2} />
             </Col>
           )
         })

@@ -40,13 +40,18 @@ class App extends React.Component {
             <IndexRoute component={Home} />
 
             <Route path="/technique" component={CategoriesIndex}>
-              <Route path={ BjjcRouter.categoryPath } component={CategoriesIndex}>
-                { /* <Route path='/technique/:slug_0/:slug_1' component={CategoriesIndex}>
-                     <Route path='/technique/categories/:slug_0/:slug_1' component={CategoriesShowShow} /> 
-                     </Route> */ }
+              <Route path='/technique/:slug_0' component={CategoriesIndex}>
+                <Route path='/technique/:slug_0/:slug_1' component={CategoriesIndex}>
+                  <Route path='/technique/:slug_0/:slug_1/:slug_2' component={CategoriesIndex}>
+                    <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3' component={CategoriesIndex}>
+                      <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4' component={CategoriesIndex}>
+                        <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4/:slug_5' component={CategoriesIndex} />
+                      </Route>
+                    </Route>
+                  </Route>
+                </Route>
               </Route>
             </Route>
-              
           </Route>
         </Router>
       </Provider>
