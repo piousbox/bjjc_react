@@ -14,6 +14,8 @@ function apiUrlReducer(state = 'no-state', action) {
   }
 }
 
+import { categoriesIndexReducer } from './categoriesReducer'
+
 /* import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
 import { reportsShowReducer } from './reportsReducer'
@@ -21,6 +23,8 @@ import { sitesReducer } from './sitesReducer' */
 
 export default combineReducers({
   apiUrl: apiUrlReducer,
+
+  categories: categoriesIndexReducer,
 
   /* citiesIndex: citiesIndexReducer,
   city: citiesShowReducer,

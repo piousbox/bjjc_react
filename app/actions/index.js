@@ -21,15 +21,16 @@ const setApiUrl = () => {
   }
 }
 
-const categoriesIndex = () => {
+const categoriesIndex = (variables) => {
   return (dispatch, getState) => {
     let state = getState()
     let url = `${config.apiUrl}/api/categories.json`
 
-    console.log('+++ url:', url)
-
+    console.log('+++ +++ categoriesIndex action state:', state)
+    console.log('+++ +++ categoriesIndex action variables:', variables)
+    
     fetch(url).then(r => r.json()).then(_data => {
-      console.log('+++ +++ _data of action categoriesIndex():', _data)
+      // console.log('+++ +++ _data of action categoriesIndex():', _data)
       dispatch({
         type: SET_CATEGORIES_INDEX,
         categories: _data,
