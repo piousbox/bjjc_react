@@ -18,27 +18,31 @@ class CategoriesIndex extends React.Component {
 
   constructor(props) {
     super(props)
-
-    console.log('+++ +++ categoriesIndex constructor props:', props)
-
-    this.state = { categories: [], category: {} }
+    // console.log('+++ +++ categoriesIndex constructor props:', props) // no props.params at first
+    this.state = { allCategories: {}, thisIndexCategory: {}, thisShowCategory: {} }
     this.props.dispatch(categoriesIndex( props.params ))
   }
 
   componentWillReceiveProps(nextProps) {
     console.log('+++ +++ nextProps:', nextProps)
     // this.props.dispatch(categoriesIndex( nextProps.params ))
-    this.setState(Object.assign({}, this.state, { categories: this.props.categories })) 
+
+    let path = '/'
+
+    if (this.state.allCategories[path]) {
+      this.setState(Object.assign({}, this.state, { thisIndexCategory: this.state.allCategories[path] }))
+    } else if (nextProps.allCategories[path]) {
+      this.setState(Object.assign({}, this.state, { thisIndexCategory: nextProps.allCategories[path] }))
+    }
   }
 
   render () {
-
-    // console.log("+++ +++ CategoriesIndex props:", this.props)
-    // console.log("+++ +++ CategoriesIndex state:", this.state.categories)
+    console.log("+++ +++ CategoriesIndex props:", this.props)
+    console.log("+++ +++ CategoriesIndex state:", this.state)
 
     let categories = []
-    if (this.state.categories) {
-      this.state.categories.forEach((item, idx) => {
+    if (this.state.thisIndexCategory.categories) {
+      this.state.thisIndexCategory.categories.forEach((item, idx) => {
         let childrenCategories = []
         item.categories.forEach((child, idx_2) => {
           childrenCategories.push(
@@ -62,7 +66,7 @@ class CategoriesIndex extends React.Component {
         technique > { this.props.params.slug_0 } > { this.props.params.slug_1 } > { this.props.params.slug_2 } > { this.props.params.slug_3 } > { this.props.params.slug_4 }
         <Row>
           <Col xs={12}>
-            <Center><Debug>Category name:</Debug><h2>{ this.state.category.name }</h2></Center>
+            <Center><Debug>Category name:</Debug><h2>{ this.state.thisIndexCategory.name }</h2></Center>
           </Col>
         </Row>
         { categories }
@@ -74,10 +78,10 @@ class CategoriesIndex extends React.Component {
 CategoriesIndex.propTypes = {
 }
 
-const mapStateToProps = (state, ownprops) => {
+const mapStateToProps = (stor, ownprops) => {
   return {
-    categories: state.categories,
-    category: state.category,
+    allCategories: stor.categories,
+    thisCategory: stor.category,
   }
 }
 

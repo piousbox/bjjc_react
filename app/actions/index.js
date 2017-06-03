@@ -8,8 +8,8 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import {
   SET_API_URL,
 
-  SET_CATEGORIES_INDEX,
-  SET_CATEGORY,
+  SET_INDEX_CATEGORY,
+  SET_SHOW_CATEGORY,
 } from '../constants';
 
 import config from 'config'
@@ -25,7 +25,6 @@ const categoriesIndex = (params) => {
   return (dispatch, getState) => {
     let state = getState()
     let url = `${config.apiUrl}/api/categories`
-
     if (params.slug_0) {
       url = `${url}/${params.slug_0}`
       if (params.slug_1) {
@@ -41,22 +40,11 @@ const categoriesIndex = (params) => {
         }
       }
     }
-    console.log('+++ +++ categoriesIndex() action params:', params, 'url:', url)
-
+    // console.log('+++ +++ categoriesIndex() action params:', params, 'url:', url)
     fetch(url).then(r => r.json()).then(_data => {
-
       console.log('+++ +++ categoriesIndex() action got data:', _data)
-
-      // let category = _data; category.delete( 'categories' )
-
-      dispatch({
-        type: SET_CATEGORIES_INDEX,
-        categories: _data,
-      })
-      dispatch({
-        type: SET_CATEGORY,
-        category: _data,
-      })
+      let obj = Object.assign({}, _data, { type: SET_INDEX_CATEGORY })
+      dispatch(obj)
     })
   }
 }

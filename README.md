@@ -17,6 +17,8 @@ Category is a thing of the structure (controllers, views).
 
 node ip - this project is on lb
 dev port 8006
+connected to api 3001
+
 
 
 

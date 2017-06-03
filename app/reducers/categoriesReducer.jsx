@@ -4,31 +4,29 @@
  */
 
 import {
-  SET_CATEGORY,
-  SET_CATEGORIES_INDEX,
+  SET_SHOW_CATEGORY,
+  SET_INDEX_CATEGORY,
 } from '../constants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
 
 function categoryReducer (state = {}, action) {
-
-  // console.log('+++ +++ category reducer:', action)
-
   switch (action.type) {
-    case SET_CATEGORY:
+    case SET_SHOW_CATEGORY:
+      console.log('+++ +++ category reducer:', action)
       return action.category
     default: return state
   }
 }
 
-function categoriesIndexReducer (state = {}, action) {
-
-  // console.log('+++ +++ cat idx reducer:', action)
-
+function categoriesReducer (state = {}, action) {
   switch (action.type) {
-    case SET_CATEGORIES_INDEX:
-      return action.categories.categories
+    case SET_INDEX_CATEGORY:
+      console.log('+++ +++ set index category reducer:', action)
+      let newState = Object.assign({}, state)
+      newState[action.path] = action
+      return newState
     default:
       return state
   }
@@ -36,5 +34,5 @@ function categoriesIndexReducer (state = {}, action) {
 
 export default {
   categoryReducer,
-  categoriesIndexReducer,
+  categoriesReducer,
 }

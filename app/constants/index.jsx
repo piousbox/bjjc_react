@@ -9,8 +9,8 @@ export const ITEMS_UPDATED = 'ITEMS_UPDATED'
 
 export const SET_API_URL = 'set api url'
 
-export const SET_CATEGORY = 'set category'
-export const SET_CATEGORIES_INDEX = 'set categories index'
+export const SET_INDEX_CATEGORY = 'set index category' // add one more category to the tree of them
+export const SET_SHOW_CATEGORY  = 'set show category'  // add the display category, with videos
 
 export const SET_CITIES_INDEX = 'set cities index'
 export const CITIES_INDEX_UPDATED = 'cities index updated'
