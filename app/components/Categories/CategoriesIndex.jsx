@@ -15,6 +15,8 @@ import BjjcBreadcrumbs from '../App/BjjcBreadcrumbs'
 import styles from './_Categories.scss'
 import CategoriesShowView from './CategoriesShowView'
 
+import VideosIndex from '../Videos/VideosIndex'
+
 class CategoriesIndex extends React.Component {
 
   constructor(props) {
@@ -51,20 +53,23 @@ class CategoriesIndex extends React.Component {
   }
 
   render () {
+    // console.log('+++ +++ categoriesIndex props:', this.props)
+    console.log('+++ +++ categoriesIndex state:', this.state)
+
     let categories = []
     if (this.state.thisIndexCategory.categories) {
       this.state.thisIndexCategory.categories.forEach((item, idx) => {
         let childrenCategories = []
         item.categories.forEach((child, idx_2) => {
           childrenCategories.push(
-            <Col key={idx_2} xs={2}>
+            <Col key={idx_2} xs={4}>
               <CategoriesShowView child={ child } />
             </Col>
           )
         })
         categories.push(
           <Row key={idx} >
-            <h3>{ item.title }</h3>
+            <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
             { childrenCategories }
           </Row>
         )
@@ -73,14 +78,20 @@ class CategoriesIndex extends React.Component {
 
     return (
       <Grid>
-        <Debug>categories index</Debug>
-        <BjjcBreadcrumbs path={this.props.params} />
         <Row>
-          <Col xs={12}>
-            <Center><Debug>Category name:</Debug><h5>{ this.state.thisIndexCategory.title }</h5></Center>
+          <Col sm={12}>
+            <BjjcBreadcrumbs path={this.props.params} />
+            <Center><h3>{ this.state.thisIndexCategory.title }</h3></Center>
           </Col>
         </Row>
-        { categories }
+        <Row>
+          <Col sm={4}>
+            { categories }
+          </Col>
+          <Col sm={8}>
+            <VideosIndex videos={ this.state.thisIndexCategory.videos } />
+          </Col>
+        </Row>
       </Grid>
     ) 
   }

@@ -35,7 +35,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store} >
-        <Router history={browserHistory}>
+        <Router onUpdate={() => window.scrollTo(0,0)} history={browserHistory}>
           <Route path='/' component={MainNavigation} >
             <IndexRoute component={Home} />
 

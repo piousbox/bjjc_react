@@ -25,8 +25,6 @@ class CategoriesShowView extends React.Component {
   }
 
   render () {
-    console.log('not here?')
-
     return (
       <div>
         <Link to={ BjjcRouter.categoryLink(this.state.category) }>{ this.state.category.title }</Link>
