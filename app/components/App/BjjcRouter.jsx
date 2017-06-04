@@ -1,9 +1,4 @@
 
-/*
- * not used right now 
- * 20170601 _vp_
- **/
-
 let BjjcRouter = {
   categoryLink: (c) => { return `/technique/${c.path}` },
   categoryPath: '/technique/:categoryPath',

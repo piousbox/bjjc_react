@@ -1,10 +1,8 @@
 
 import CategoriesIndex    from './CategoriesIndex'
-import CategoriesShow     from './CategoriesShow'
-// import CategoriesShowShow from './CategoriesShowShow'
+import CategoriesShowView from './CategoriesShowView'
 
 export default {
   CategoriesIndex,
-  CategoriesShow,
-  // CategoriesShowShow,
+  CategoriesShowView,
 }
