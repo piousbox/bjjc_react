@@ -74,6 +74,7 @@ class CategoriesIndex extends React.Component {
     return (
       <Grid>
         <Debug>categories index</Debug>
+        <BjjcBreadcrumbs path={this.props.params} />
         <Row>
           <Col xs={12}>
             <Center><Debug>Category name:</Debug><h5>{ this.state.thisIndexCategory.title }</h5></Center>
