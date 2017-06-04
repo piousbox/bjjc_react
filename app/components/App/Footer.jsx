@@ -33,7 +33,7 @@ class Footer extends React.Component {
             <Col xs={12} >
               apiUrl: {this.props.apiUrl}
               <br />
-              0.0.0 - lets deploy
+              0.0.1 - lets deploy
             </Col>
           </Row>
         </Grid>
