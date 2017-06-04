@@ -39,7 +39,7 @@ class MainNavigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav bsStyle="pills" pullRight>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="http://bjjcollective.com">Old Home</Link></li>
               <li><Link to='/technique'>Encyclopedia of Technique</Link></li>
               <li><Link to='/fighters-guild'>Fighters Guild</Link></li>
               <li><Link to='/shop'>Shop</Link></li>

@@ -1,7 +1,7 @@
 
 let Config = {
   envName: "production",
-  apiUrl: "http://manager.piousbox.com"
+  apiUrl: "http://fighters-guild.piousbox.com"
 }
 
 export default Config
