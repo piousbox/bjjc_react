@@ -3,6 +3,8 @@
 set -ex
 
 cd /home/ubuntu/projects/bjjc_react
+git fetch --all
+git pull origin master
 git reset origin/master --hard
 git pull
 sudo service apache2 reload
