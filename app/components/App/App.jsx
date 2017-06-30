@@ -13,6 +13,7 @@ import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
 import Home from './Home'
+import FightersGuild from '../FightersGuild/index'
 import { CategoriesIndex, CategoriesShow } from '../Categories'
 import MainNavigation from './MainNavigation'
 import BjjcRouter from './BjjcRouter'
@@ -38,6 +39,9 @@ class App extends React.Component {
         <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
           <Route path='/' component={MainNavigation} >
             <IndexRoute component={Home} />
+
+            <Route path="/fg" component={FightersGuild} >
+            </Route>
 
             <Route path="/technique" component={CategoriesIndex}>
               <Route path='/technique/:slug_0' component={CategoriesIndex}>

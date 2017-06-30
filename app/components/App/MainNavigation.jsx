@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import styles from './_App.scss'
 import Footer from './Footer'
 import Leaderboard from './Leaderboard'
+import Login from './Login'
 
 import config from 'config'
 import {
@@ -41,8 +42,9 @@ class MainNavigation extends React.Component {
             <Nav bsStyle="pills" pullRight>
               <li><Link to="http://bjjcollective.com">Old Home</Link></li>
               <li><Link to='/technique'>Encyclopedia of Technique</Link></li>
-              <li><Link to='/fighters-guild'>Fighters Guild</Link></li>
+              <li><Link to='/fg'>Fighters Guild</Link></li>
               <li><Link to='/shop'>Shop</Link></li>
+              <li><Login /></li>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

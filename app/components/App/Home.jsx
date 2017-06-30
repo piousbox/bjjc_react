@@ -13,6 +13,7 @@ import config from 'config'
 import styles from './_App.scss'
 import Footer from './Footer'
 import Newsitems from './Newsitems'
+import Login from './Login'
 
 import logo_1 from './images/logo_1.jpg'
 import Center from '../Center'
@@ -51,6 +52,7 @@ class Home extends React.Component {
           <Row>
             <Col xs={12}>
               <Center><img src={logo_1} alt='' /></Center>
+              <Login />
             </Col>
           </Row>
         </Grid>
