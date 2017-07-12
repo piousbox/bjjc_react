@@ -16,6 +16,8 @@ function apiUrlReducer(state = 'no-state', action) {
 
 import { categoriesReducer, categoryReducer } from './categoriesReducer'
 
+import { videoReducer, } from './videosReducer'
+
 /* import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
 import { reportsShowReducer } from './reportsReducer'
@@ -26,4 +28,6 @@ export default combineReducers({
 
   categories: categoriesReducer,
   category: categoryReducer,
+
+  video: videoReducer,
 })

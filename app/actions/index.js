@@ -10,6 +10,8 @@ import {
 
   SET_INDEX_CATEGORY,
   SET_SHOW_CATEGORY,
+
+  SET_VIDEO,
 } from '../constants';
 
 import config from 'config'
@@ -35,6 +37,12 @@ const categoriesIndex = (params) => {
             url = `${url}/${params.slug_3}`
             if (params.slug_4) {
               url = `${url}/${params.slug_4}`
+              if (params.slug_5) {
+                url = `${url}/${params.slug_5}`
+                if (params.slug_6) {
+                  url = `${url}/${params.slug_6}`
+                }
+              }
             }
           }
         }
@@ -44,6 +52,18 @@ const categoriesIndex = (params) => {
     fetch(url).then(r => r.json()).then(_data => {
       console.log('+++ +++ categoriesIndex() action got data:', _data)
       let obj = Object.assign({}, _data, { type: SET_INDEX_CATEGORY })
+      dispatch(obj)
+    })
+  }
+}
+
+const videosShowAction = (youtubeId) => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/videos/view/${youtubeId}`
+    fetch(url).then(r => r.json()).then(_data => {
+      console.log("+++ +++ got video data:", _data)
+      let obj = Object.assign({}, _data, { type: SET_VIDEO })
       dispatch(obj)
     })
   }
@@ -137,4 +157,6 @@ export default {
 
   categoriesIndex,
   categoriesShow,
+
+  videosShowAction,
 }

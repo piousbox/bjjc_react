@@ -3,6 +3,10 @@ import { Grid, Col, Row } from 'react-bootstrap'
 
 import Center from '../Center'
 
+import BjjcRouter from '../App/BjjcRouter'
+
+import { Link } from 'react-router'
+
 class VideosIndex extends React.Component {
 
   constructor(props) {
@@ -14,15 +18,15 @@ class VideosIndex extends React.Component {
 
   render () {
     let videos = []
-    let videosCount = 'undefined'
+    let videosCount = this.props.nVideos
 
     if (this.props.videos) {
       this.props.videos.forEach((video) => {
         videos.push(
           <div>
-            <h5>{ video.title }</h5>
-            <iframe width="420" height="315" src={`https://www.youtube.com/embed/${video.youtube_id}`}>
-            </iframe> 
+            <h5><Link to={ BjjcRouter.videosShowLink( video ) }>{ video.title }</Link></h5>
+            <iframe width="420" height="315" src={`https://www.youtube.com/embed/${video.youtube_id}`}></iframe>
+            <div dangerouslySetInnerHTML={{ __html: video.descr }} />
           </div>
         )
       })

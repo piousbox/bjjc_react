@@ -25,3 +25,6 @@ export const SET_REPORT = 'set report'
 
 export const SET_SITE_NEWSITEMS = 'set site newsitems'
 
+export const SET_VIDEO = 'set video'
+
+

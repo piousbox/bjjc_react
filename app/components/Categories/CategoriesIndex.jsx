@@ -37,6 +37,12 @@ class CategoriesIndex extends React.Component {
             path = `${path}/${nextProps.params.slug_3}`
             if (nextProps.params.slug_4) {
               path = `${path}/${nextProps.params.slug_4}`
+              if (nextProps.params.slug_5) {
+                path = `${path}/${nextProps.params.slug_5}`
+                if (nextProps.params.slug_6) {
+                  path = `${path}/${nextProps.params.slug_6}`
+                }
+              }
             }
           }
         }
@@ -86,10 +92,11 @@ class CategoriesIndex extends React.Component {
         </Row>
         <Row>
           <Col sm={4}>
+            <h3>Subcategories</h3>
             { categories }
           </Col>
           <Col sm={8}>
-            <VideosIndex videos={ this.state.thisIndexCategory.videos } />
+            <VideosIndex videos={ this.state.thisIndexCategory.videos } nVideos={ this.state.thisIndexCategory.n_videos }/>
           </Col>
         </Row>
       </Grid>

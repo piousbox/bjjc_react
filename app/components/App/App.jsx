@@ -15,6 +15,7 @@ import store      from '../../stores'
 import Home from './Home'
 import FightersGuild from '../FightersGuild/index'
 import { CategoriesIndex, CategoriesShow } from '../Categories'
+import { VideosShow } from '../Videos'
 import MainNavigation from './MainNavigation'
 import BjjcRouter from './BjjcRouter'
 
@@ -43,12 +44,18 @@ class App extends React.Component {
             <Route path="/fg" component={FightersGuild} >
             </Route>
 
+            <Route path={BjjcRouter.videosShowPath} component={VideosShow} />
+
             <Route path="/technique" component={CategoriesIndex}>
               <Route path='/technique/:slug_0' component={CategoriesIndex}>
                 <Route path='/technique/:slug_0/:slug_1' component={CategoriesIndex}>
                   <Route path='/technique/:slug_0/:slug_1/:slug_2' component={CategoriesIndex}>
-                    <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3' component={CategoriesIndex}>
-                      <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4' component={CategoriesIndex} />
+                    <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3' component={CategoriesIndex}>   
+                      <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4' component={CategoriesIndex}>
+                        <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4/:slug_5' component={CategoriesIndex}>
+                          <Route path='/technique/:slug_0/:slug_1/:slug_2/:slug_3/:slug_4/:slug_5/:slug_6' component={CategoriesIndex} />
+                        </Route>
+                      </Route>
                     </Route>
                   </Route>
                 </Route>
