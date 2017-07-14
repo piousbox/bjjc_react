@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Panel,
+} from 'react-bootstrap'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
@@ -60,10 +62,10 @@ class CategoriesIndex extends React.Component {
 
   render () {
     // console.log('+++ +++ categoriesIndex props:', this.props)
-    console.log('+++ +++ categoriesIndex state:', this.state)
+    // console.log('+++ +++ categoriesIndex state:', this.state)
 
     let categories = []
-    if (this.state.thisIndexCategory.categories) {
+    if (this.state.thisIndexCategory.categories && this.state.thisIndexCategory.categories.length > 0) {
       this.state.thisIndexCategory.categories.forEach((item, idx) => {
         let childrenCategories = []
         item.categories.forEach((child, idx_2) => {
@@ -72,14 +74,34 @@ class CategoriesIndex extends React.Component {
               <CategoriesShowView child={ child } />
             </Col>
           )
+          if ((idx_2 + 1) % 3 == 0) {
+            childrenCategories.push(<div style={{ clear: 'both' }} />)
+            childrenCategories.push(<br />)
+          }
         })
-        categories.push(
-          <Row key={idx} >
-            <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
-            { childrenCategories }
-          </Row>
-        )
+        if (item.photo_url) {
+          categories.push(
+            <Panel>
+              <div><br /><img src={item.photo_url} alt='' /></div>
+              <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
+              <Row key={idx} >
+                { childrenCategories }
+              </Row>
+            </Panel>
+          )
+        } else {
+          categories.push(
+            <Panel>
+              <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
+              <Row key={idx} >
+                { childrenCategories }
+              </Row>
+            </Panel>
+          )
+        }
       })
+    } else {
+      categories.push(<div>This category does not have subcategories.</div>)
     }
 
     return (
@@ -87,12 +109,12 @@ class CategoriesIndex extends React.Component {
         <Row>
           <Col sm={12}>
             <BjjcBreadcrumbs path={this.props.params} />
-            <Center><h3>{ this.state.thisIndexCategory.title }</h3></Center>
+            <Center><h3>{ this.state.thisIndexCategory.title } ({this.state.thisIndexCategory.n_videos})</h3></Center>
           </Col>
         </Row>
         <Row>
           <Col sm={4}>
-            <h3>Subcategories</h3>
+            { /* <h3>Subcategories</h3> */ }
             { categories }
           </Col>
           <Col sm={8}>

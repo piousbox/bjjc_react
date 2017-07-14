@@ -27,9 +27,9 @@ class CategoriesShowView extends React.Component {
   render () {
     return (
       <div>
-        <Link to={ BjjcRouter.categoryLink(this.state.category) }>{ this.state.category.title }</Link>
-        <br />        
         <img style={{ width: '100%' }} src={ this.state.category.photo_url } alt='' />
+        <br />        
+        <Link to={ BjjcRouter.categoryLink(this.state.category) }>{ this.state.category.title }</Link>
       </div>
     ) 
   }

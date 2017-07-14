@@ -7,6 +7,8 @@ import BjjcRouter from '../App/BjjcRouter'
 
 import { Link } from 'react-router'
 
+import { Panel } from 'react-bootstrap'
+
 class VideosIndex extends React.Component {
 
   constructor(props) {
@@ -23,11 +25,11 @@ class VideosIndex extends React.Component {
     if (this.props.videos) {
       this.props.videos.forEach((video) => {
         videos.push(
-          <div>
-            <h5><Link to={ BjjcRouter.videosShowLink( video ) }>{ video.title }</Link></h5>
+          <Panel>
+            <h2><Link to={ BjjcRouter.videosShowLink( video ) }>{ video.title }</Link></h2>
             <iframe width="420" height="315" src={`https://www.youtube.com/embed/${video.youtube_id}`}></iframe>
             <div dangerouslySetInnerHTML={{ __html: video.descr }} />
-          </div>
+          </Panel>
         )
       })
     }
@@ -36,7 +38,7 @@ class VideosIndex extends React.Component {
       <div>
         <Row>
           <Col sm={12}>
-            <Center>videos ({videosCount})</Center>
+            { /* <Center>videos ({videosCount})</Center> */ }
             { videos }
           </Col>
         </Row>
