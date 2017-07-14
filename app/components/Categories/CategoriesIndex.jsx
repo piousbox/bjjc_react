@@ -74,7 +74,7 @@ class CategoriesIndex extends React.Component {
               <CategoriesShowView child={ child } />
             </Col>
           )
-          if ((idx_2 + 1) % 3 == 0) {
+          if ((idx_2 + 1) % 3 === 0) {
             childrenCategories.push(<div style={{ clear: 'both' }} />)
             childrenCategories.push(<br />)
           }
