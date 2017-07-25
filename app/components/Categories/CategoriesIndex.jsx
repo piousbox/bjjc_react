@@ -19,6 +19,8 @@ import CategoriesShowView from './CategoriesShowView'
 
 import VideosIndex from '../Videos/VideosIndex'
 
+import Leaderboard from '../App/Leaderboard'
+
 class CategoriesIndex extends React.Component {
 
   constructor(props) {
@@ -106,6 +108,7 @@ class CategoriesIndex extends React.Component {
 
     return (
       <Grid>
+        <Leaderboard />
         <Row>
           <Col sm={12}>
             <BjjcBreadcrumbs path={this.props.params} />
