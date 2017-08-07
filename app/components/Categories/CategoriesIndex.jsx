@@ -19,7 +19,7 @@ import CategoriesShowView from './CategoriesShowView'
 
 import VideosIndex from '../Videos/VideosIndex'
 
-import Leaderboard from '../App/Leaderboard'
+import { LargeSquare, Leaderboard } from '../App'
 
 class CategoriesIndex extends React.Component {
 
@@ -67,6 +67,7 @@ class CategoriesIndex extends React.Component {
     // console.log('+++ +++ categoriesIndex state:', this.state)
 
     let categories = []
+    let parentIdx = 0
     if (this.state.thisIndexCategory.categories && this.state.thisIndexCategory.categories.length > 0) {
       this.state.thisIndexCategory.categories.forEach((item, idx) => {
         let childrenCategories = []
@@ -83,7 +84,7 @@ class CategoriesIndex extends React.Component {
         })
         if (item.photo_url) {
           categories.push(
-            <Panel>
+            <Panel key={parentIdx++} >
               <div><br /><img src={item.photo_url} alt='' /></div>
               <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
               <Row key={idx} >
@@ -93,7 +94,7 @@ class CategoriesIndex extends React.Component {
           )
         } else {
           categories.push(
-            <Panel>
+            <Panel key={parentIdx++} >
               <h3><Link to={BjjcRouter.categoryLink( item )}>{ item.title }</Link></h3>
               <Row key={idx} >
                 { childrenCategories }
@@ -101,9 +102,12 @@ class CategoriesIndex extends React.Component {
             </Panel>
           )
         }
+        if (parentIdx === 1) {
+          categories.push(<LargeSquare key={parentIdx++} />)
+        }
       })
     } else {
-      categories.push(<div>This category does not have subcategories.</div>)
+      categories.push(<div key={parentIdx++} >This category does not have subcategories.</div>)
     }
 
     return (

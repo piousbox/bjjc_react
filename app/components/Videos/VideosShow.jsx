@@ -6,6 +6,7 @@ import { Grid, Col, Row,
 import Center from '../Center'
 
 import BjjcRouter from '../App/BjjcRouter'
+import Leaderboard from '../App/Leaderboard'
 
 import { Link } from 'react-router'
 
@@ -43,22 +44,23 @@ class VideosShow extends React.Component {
     }
 
     return (
-        <Grid>
-          <Row>
-            <Col xs={8} xsOffset={2}>
-              <Panel>
-                <Center>
-                  <h2>{ title }</h2>
-                  <br /><br />
-                  <iframe width="420" height="315" src={`https://www.youtube.com/embed/${this.props.params.youtubeId}`}></iframe>
-                  <br /><br />
-                </Center>
-                <div dangerouslySetInnerHTML={{ __html: descr }} />
-                <p>Comments?</p>
-                <p>Assignments?</p>
-              </Panel>
-            </Col>
-          </Row>
+      <Grid>
+        <Leaderboard />
+        <Row>
+          <Col xs={8} xsOffset={2}>
+            <Panel>
+              <Center>
+                <h2>{ title }</h2>
+                <br /><br />
+                <iframe width="420" height="315" src={`https://www.youtube.com/embed/${this.props.params.youtubeId}`}></iframe>
+                <br /><br />
+              </Center>
+              <div dangerouslySetInnerHTML={{ __html: descr }} />
+              <p>Comments?</p>
+              <p>Assignments?</p>
+            </Panel>
+          </Col>
+        </Row>
       </Grid>
     )
   }
