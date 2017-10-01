@@ -161,6 +161,6 @@
     "buildDir": "./build",
     "buildDirTests": "./build_tests",
     "devHost": "localhost",
-    "devPort": 8006
+    "devPort": 8007
   }
 }
